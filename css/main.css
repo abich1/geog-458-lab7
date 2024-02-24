@@ -130,10 +130,7 @@ p {
 
 
 [data-scene="6"] {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+
   margin: 0 auto 0 auto !important;
   height: 100vh !important;
 }
