@@ -102,8 +102,6 @@ p {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-
-
 .scene {
   position: relative;
   max-width: 40rem;
@@ -130,19 +128,8 @@ p {
   text-shadow: 0 0 6px white;
 }
 
-[data-scene="4"] div {
-  font-size: xxx-large;
-}
-
-[data-scene="5"] img {
-  display: block;
-  margin: 2rem auto 0 auto;
-  width: 90%;
-  border: 5px solid white;
-}
 
 [data-scene="6"] {
-  background: url("../img/background.jpg") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
