@@ -156,9 +156,6 @@
       response = await fetch("assets/yifang.geojson");
       yifang = await response.json();
 
-      response = await fetch("assets/all.geojson");
-      all = await response.json();
-
       // 7. Trigger operations inside of the the ()=> {} funciton while loading the map.
       map.on('load', () => {
 
@@ -251,22 +248,6 @@
           'id': 'yifang-points',
           'type': 'circle',
           'source': 'yifang-src',
-          'minzoom': 5,
-          'paint': {
-            'circle-color': 'brown',
-            'circle-radius': 7,
-            'circle-opacity': 0.8,
-          }
-        };
-
-        map.addSource('all-src', {
-          type: 'geojson',
-          data: all
-        });
-        allLayer = {
-          'id': 'all-points',
-          'type': 'circle',
-          'source': 'all-src',
           'minzoom': 5,
           'paint': {
             'circle-color': 'brown',
@@ -432,22 +413,8 @@
               zoom: 16,
 
             }); // fly to a new location
-          
-            if (typeof (map.getSource('all-src')) == 'undefined') {
-              map.addSource('all-src', {
-                type: 'geojson',
-                data: all
-              });
-            } else {
-              map.getSource('all-src').setData(all);
-
-            }
+  
             map.setStyle('mapbox://styles/mapbox/satellite-streets-v10');
-
-            if (!map.getLayer("all-points")) {
-              map.addLayer(allLayer);
-            }
-
           } 
         }
 
@@ -492,9 +459,6 @@
           }
 
           else if (index === 6) {
-            if (map.getLayer("all-points")) {
-              map.removeLayer('all-points');
-            }
             map.setStyle('mapbox://styles/mapbox/light-v10');
           }
 
