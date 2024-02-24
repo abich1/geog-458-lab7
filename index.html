@@ -114,7 +114,7 @@
 
     // 4. Initialize the mapbox
     mapboxgl.accessToken =
-      'pk.eyJ1IjoiamFrb2J6aGFvIiwiYSI6ImNpcms2YWsyMzAwMmtmbG5icTFxZ3ZkdncifQ.P9MBej1xacybKcDN_jehvw'; // Assign the access token
+      'pk.eyJ1IjoiYWNoaW5uIiwiYSI6ImNscmw4dGp3dDBsdGMyanBnYzJnYTBwa2QifQ.DjOk5jGS6jBfpiEY0lilmw'; // Assign the access token
    
     map = new mapboxgl.Map({
       container: 'map', // container ID
@@ -135,7 +135,7 @@
     // 5. define the asynchronous function to load geojson data and then performs the dependent actions.
     async function geojsonFetch() {
 
-      // 6 wait till the data of washington counties and cultivate are fully loaded.
+      // 6 wait till the data are fully loaded.
       let response, cultivate;
 
       response = await fetch("assets/cultivate.geojson");
@@ -155,9 +155,11 @@
 
       response = await fetch("assets/yifang.geojson");
       yifang = await response.json();
+      console.log("data loaded")
 
       // 7. Trigger operations inside of the the ()=> {} funciton while loading the map.
       map.on('load', () => {
+        console.log("map source and layers")
 
         // 8. add map source and declare layers.
         map.addSource('cultivate-src', {
