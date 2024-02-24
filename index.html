@@ -311,6 +311,7 @@
 
             if (!map.getLayer("cultivate-points")) {
               map.addLayer(cultivateLayer);
+              console.log("cultivate")
             }
           } else if (index === 5) {
             map.flyTo({
@@ -400,7 +401,6 @@
             if (!map.getLayer("yfg-points")) {
               map.addLayer(yfgLayer);
             }
-
           } 
 
           else if (index === 2) {
