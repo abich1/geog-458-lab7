@@ -136,25 +136,14 @@
     async function geojsonFetch() {
 
       // 6 wait till the data are fully loaded.
-      let response, cultivate, mod, dont, macu, yfg, yifang;
 
-      response = await fetch("assets/cultivate.geojson");
-      cultivate = await response.json();
 
-      response = await fetch("assets/mod.geojson");
-      mod = await response.json();
+      const urls = ["assets/cultivate.geojson", "assets/mod.geojson", "assets/dont.geojson", "assets/macu.geojson", "assets/yfg.geojson", "assets/yifang.geojson"];
+      const responses = await Promise.all(urls.map(url => fetch(url)));
+      const data = await Promise.all(responses.map(response => response.json()));
 
-      response = await fetch("assets/dont.geojson");
-      dont = await response.json();
+      const [cultivate, mod, dont, macu, yfg, yifang] = data;
 
-      response = await fetch("assets/macu.geojson");
-      macu = await response.json();
-
-      response = await fetch("assets/yfg.geojson");
-      yfg = await response.json();
-
-      response = await fetch("assets/yifang.geojson");
-      yifang = await response.json();
       console.log("data loaded")
 
       // 7. Trigger operations inside of the the ()=> {} funciton while loading the map.
